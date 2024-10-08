@@ -2,7 +2,7 @@
  A Space Invaders game but with gore as a main focus
 
 
-Members:
+Project Members:
 - Hampus [HCS]
 - Erik
 - Vincent
