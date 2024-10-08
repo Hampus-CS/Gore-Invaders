@@ -25,6 +25,11 @@ public class Player : MonoBehaviour
             position.x += speed * Time.deltaTime;
         }
 
+        Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
+        Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
+
+        position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
+
         transform.position = position;
 
         if (Input.GetKeyDown(KeyCode.Space) && laser == null)
