@@ -9,13 +9,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -3643896192386682801, guid: c5e8df54fff663a448bfcc8945d0acf0, type: 3}
+      propertyPath: animationSprites.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -3643896192386682801, guid: c5e8df54fff663a448bfcc8945d0acf0, type: 3}
       propertyPath: animationSprites.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 0be31c3c0b758b940a2889b6c8e0cd82, type: 3}
+      objectReference: {fileID: 21300000, guid: 562563ea8d754404cb1ed3c569d2b8de, type: 3}
     - target: {fileID: -3643896192386682801, guid: c5e8df54fff663a448bfcc8945d0acf0, type: 3}
       propertyPath: animationSprites.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 52d518f4c71159b48a16ddc67435aea0, type: 3}
+      objectReference: {fileID: 21300000, guid: 13030ed2537c190458b67661cbf06b5c, type: 3}
+    - target: {fileID: -3643896192386682801, guid: c5e8df54fff663a448bfcc8945d0acf0, type: 3}
+      propertyPath: animationSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: d95a9869a192ff149a44d8ce14908483, type: 3}
+    - target: {fileID: -3643896192386682801, guid: c5e8df54fff663a448bfcc8945d0acf0, type: 3}
+      propertyPath: animationSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 80eff1c7cd0d8a647a91bb3d3a61983d, type: 3}
+    - target: {fileID: -3643896192386682801, guid: c5e8df54fff663a448bfcc8945d0acf0, type: 3}
+      propertyPath: animationSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: d95a9869a192ff149a44d8ce14908483, type: 3}
+    - target: {fileID: -3643896192386682801, guid: c5e8df54fff663a448bfcc8945d0acf0, type: 3}
+      propertyPath: animationSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: 13030ed2537c190458b67661cbf06b5c, type: 3}
     - target: {fileID: 616470825853576882, guid: c5e8df54fff663a448bfcc8945d0acf0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
