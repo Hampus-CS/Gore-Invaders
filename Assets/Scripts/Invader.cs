@@ -10,7 +10,7 @@ using UnityEngine;
 
 public class Invader : MonoBehaviour
 {
-    public Sprite[] animationSprites = new Sprite[2];
+    public Sprite[] animationSprites = new Sprite[4];
     public float animationTime;
 
     SpriteRenderer spRend;
