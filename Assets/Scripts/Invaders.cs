@@ -16,6 +16,8 @@ public class Invaders : MonoBehaviour
 
     public Missile missilePrefab;
 
+    private float speed = 1f; //Start hastighet för invaders.
+
     private void Awake()
     {
         initialPosition = transform.position;
@@ -24,7 +26,7 @@ public class Invaders : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(MissileAttack), 1, 1); //Hur ofta ska den skjuta iväg missiler
+        InvokeRepeating(nameof(MissileAttack), 1, 1); //Hur ofta ska den skjuta iväg missiler.
     }
 
     //Skapar själva griden med alla invaders.
@@ -35,7 +37,7 @@ public class Invaders : MonoBehaviour
             float width = 2f * (col - 1);
             float height = 2f * (row - 1);
 
-            //för att centerar invaders
+            //för att centerar invaders.
             Vector2 centerOffset = new Vector2(-width * 0.5f, -height * 0.5f);
             Vector3 rowPosition = new Vector3(centerOffset.x, (2f * r) + centerOffset.y, 0f);
             
@@ -50,7 +52,7 @@ public class Invaders : MonoBehaviour
         }
     }
     
-    //Aktiverar alla invaders igen och placerar från ursprungsposition
+    //Aktiverar alla invaders igen och placerar från ursprungsposition.
     public void ResetInvaders()
     {
         direction = Vector3.right;
@@ -89,7 +91,7 @@ public class Invaders : MonoBehaviour
        
     }
 
-    //Kollar hur många invaders som lever
+    //Kollar hur många invaders som lever.
     public int GetInvaderCount()
     {
         int nr = 0;
@@ -102,10 +104,9 @@ public class Invaders : MonoBehaviour
         return nr;
     }
 
-    //Flyttar invaders åt sidan
+    //Flyttar invaders åt sidan.
     void Update()
     {
-        float speed = 1f;
         transform.position += speed * Time.deltaTime * direction;
 
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
@@ -113,7 +114,7 @@ public class Invaders : MonoBehaviour
 
         foreach (Transform invader in transform)
         {
-            if (!invader.gameObject.activeInHierarchy) //Kolla bara invaders som lever
+            if (!invader.gameObject.activeInHierarchy) //Kolla bara invaders som lever.
                 continue;
 
             if (direction == Vector3.right && invader.position.x >= rightEdge.x - 1f)
@@ -136,4 +137,11 @@ public class Invaders : MonoBehaviour
         position.y -= 1f;
         transform.position = position;
     }
+
+    public void IncreaseSpeed()
+    {
+        speed += 2f; // Ökar hastigheten med 2f varje 100 poäng.
+        Debug.Log($"Invader hastighet ökad till: {speed}");
+    }
+
 }

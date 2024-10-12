@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Timeline.Actions;
+using TMPro;
 
 [DefaultExecutionOrder(-1)]
 public class GameManager : MonoBehaviour
@@ -12,10 +13,14 @@ public class GameManager : MonoBehaviour
     private Invaders invaders;
     private MysteryShip mysteryShip;
     private Bunker[] bunkers;
-
-    //Används ej just nu, men ni kan använda de senare
+    
     public int score { get; private set; } = 0;
     public int lives { get; private set; } = 3;
+
+    public TextMeshProUGUI scoreText;
+    public GameObject heartPrefab;
+    public Transform livesContainer;
+    private List<GameObject> hearts = new List<GameObject>();
 
     private void Awake()
     {
@@ -89,14 +94,22 @@ public class GameManager : MonoBehaviour
         invaders.gameObject.SetActive(false);
     }
 
-    private void SetScore(int score)
+    private void SetScore(int playerScore)
     {
-        
+        score = playerScore;
+        scoreText.text = $"Score: {score}";
+        Debug.Log($"Score: {score}");
+
+        if (score > 0 && score % 100 == 0)
+        {
+            invaders.IncreaseSpeed();
+        }
     }
 
-    private void SetLives(int lives)
+    private void SetLives(int playerlives)
     {
-       
+        lives = playerlives;
+        Debug.Log($"Lives: {lives}");
     }
 
     public void OnPlayerKilled(Player player)
@@ -109,9 +122,20 @@ public class GameManager : MonoBehaviour
     public void OnInvaderKilled(Invader invader)
     {
         invader.gameObject.SetActive(false);
-
-       
-
+        
+        if (invader.invaderType == 1)
+        {
+            SetScore(score + 10);
+        }
+        else if (invader.invaderType == 2)
+        {
+            SetScore(score + 20);
+        }
+        else if (invader.invaderType == 3)
+        {
+            SetScore(score + 30);
+        }
+        
         if (invaders.GetInvaderCount() == 0)
         {
             NewRound();
