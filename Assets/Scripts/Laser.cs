@@ -29,7 +29,7 @@ public class Laser : Projectile
         if(bunker == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
         {
             Destroy(gameObject);
-            GameObject.Find("Main Camera").GetComponent<screan_shake_code>().shake = 5f;
+            GameObject.Find("Main Camera").GetComponent<screan_shake_code>().shake = 2f;
         }
     }
 }

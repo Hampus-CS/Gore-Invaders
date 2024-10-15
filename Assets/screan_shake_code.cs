@@ -10,7 +10,7 @@ public class screan_shake_code : MonoBehaviour
     void Start()
     {
         //shake = 5;
-        GameObject.Find("Main Camera").GetComponent<screan_shake_code>().shake = 2f;
+        GameObject.Find("Main Camera").GetComponent<screan_shake_code>().shake = 1f;
     }
 
     // Update is called once per frame
