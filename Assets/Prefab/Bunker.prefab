@@ -171,3 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b900a318876b14e9bb024133d7c490, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bunkerLifeSprites:
+  - {fileID: 112491613, guid: 0779b486b8611534785e5231063139b8, type: 3}
+  - {fileID: -230909072, guid: 0779b486b8611534785e5231063139b8, type: 3}
+  - {fileID: 1419860092, guid: 0779b486b8611534785e5231063139b8, type: 3}
+  - {fileID: -759620127, guid: 0779b486b8611534785e5231063139b8, type: 3}
