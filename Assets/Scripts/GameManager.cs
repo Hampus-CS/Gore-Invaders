@@ -1,7 +1,5 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Timeline.Actions;
 using TMPro;
 
 [DefaultExecutionOrder(-1)]
@@ -18,9 +16,9 @@ public class GameManager : MonoBehaviour
     public int lives { get; private set; } = 3;
 
     public TextMeshProUGUI scoreText;
-    public GameObject heartPrefab;
-    public Transform livesContainer;
-    private List<GameObject> hearts = new List<GameObject>();
+    //public GameObject heartPrefab;
+    //public Transform livesContainer;
+    public List<GameObject> hearts;
 
     private void Awake()
     {
@@ -106,10 +104,35 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void SetLives(int playerlives)
+    private void SetLives(int lives)
     {
-        lives = playerlives;
+        hearts[0].SetActive(true);
+        hearts[1].SetActive(true);
+        hearts[2].SetActive(true);
         Debug.Log($"Lives: {lives}");
+    }
+
+    public void Health()
+    {
+        {
+            lives -= 1;
+
+            if (lives == 2)
+            {
+                hearts[0].SetActive(false);
+            }
+            else if (lives == 1)
+            {
+                hearts[1].SetActive(false);
+            }
+            else if (lives == 0)
+            {
+                hearts[2].SetActive(false);
+                OnPlayerKilled(player);
+            }
+
+            Debug.Log($"Player lives remaining: {lives}");
+        }
     }
 
     public void OnPlayerKilled(Player player)
