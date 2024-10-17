@@ -3,9 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    public int gameScene;
 
+    [Header("Music Manager")]
     public MainMenuMusicManager musicManager;
-
+    
     public void Play()
     {
 
@@ -13,7 +15,7 @@ public class MainMenu : MonoBehaviour
         {
 
             musicManager.StopMainMenuMusic();
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(gameScene);
 
         }
 
