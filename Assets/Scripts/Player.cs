@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
 {
     public Laser laserPrefab;
     Laser laser;
+    public GameObject LaserLjud;
+    
     GameManager gameManager;
     float speed = 5f;
 
@@ -30,6 +32,7 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && laser == null)
         {
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+            Instantiate(LaserLjud, transform.position, Quaternion.identity);
         }
     }
 
