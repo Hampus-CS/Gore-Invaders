@@ -20,7 +20,7 @@ public class Missile : Projectile
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Destroy(gameObject); //så fort den krockar med något så ska den försvinna.
-        GameObject.Find("Main Camera").GetComponent<screan_shake_code>().shake = 1.5f;
+        GameObject.Find("Main Camera").GetComponent<screan_shake_code>().shake = 1.2f;
     }
    
 }
