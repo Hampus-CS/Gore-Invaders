@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 {
     public Laser laserPrefab;
     Laser laser;
+    GameManager gameManager;
     float speed = 5f;
 
     // Update is called once per frame
@@ -42,7 +43,7 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Missile") || collision.gameObject.layer == LayerMask.NameToLayer("Invader"))
         {
-            GameManager.Instance.OnPlayerKilled(this);
+            GameManager.Instance.Health();
         }
     }
 }
