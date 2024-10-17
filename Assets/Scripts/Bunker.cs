@@ -6,8 +6,11 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Bunker : MonoBehaviour
 {
+    
     int nrOfHits = 0;
     SpriteRenderer spRend;
+    public Sprite[] bunkerLifeSprites = new Sprite[4];
+
     private void Awake()
     {
         spRend = GetComponent<SpriteRenderer>();
@@ -21,17 +24,33 @@ public class Bunker : MonoBehaviour
 
             //Ändrar färgen beroende på antal träffar.
             nrOfHits++;
-            Color oldColor = spRend.color;
+            //Color oldColor = spRend.color;
 
-            Color newColor = new Color(oldColor.r +(nrOfHits*0.1f), oldColor.g + (nrOfHits * 0.1f), oldColor.b + (nrOfHits * 0.1f));
+            //Color newColor = new Color(oldColor.r +(nrOfHits*0.1f), oldColor.g + (nrOfHits * 0.1f), oldColor.b + (nrOfHits * 0.1f));
             
-            spRend.color = newColor;
-            
-            if (nrOfHits == 4)
+            //spRend.color = newColor;
+            if(nrOfHits == 0)
+            {
+                spRend.sprite = bunkerLifeSprites[0];
+            }
+            else if (nrOfHits == 1)
+            {
+                spRend.sprite = bunkerLifeSprites[1];
+            }
+            else if (nrOfHits == 2)
+            {
+                spRend.sprite = bunkerLifeSprites[2];
+            }
+            else if (nrOfHits == 3)
+            {
+                spRend.sprite = bunkerLifeSprites[3];
+            }
+            else if (nrOfHits == 4)
             {
                 gameObject.SetActive(false);
             }
-            
+
+
         }
     }
 
