@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MainMenuMusicManager : MonoBehaviour
 {
-    [Header("Main menu music manager")]
-    public AudioSource mainMenuMusic;
+
+    AudioSource mainMenuMusic;
 
     void Start()
     {

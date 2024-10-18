@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public int score { get; private set; } = 0;
     public int lives { get; private set; } = 3;
 
+    public GameObject deathScreen;
+
     public TextMeshProUGUI scoreText;
     //public GameObject heartPrefab;
     //public Transform livesContainer;
@@ -60,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     private void NewGame()
     {
-
+        deathScreen.gameObject.SetActive(false);
         SetScore(0);
         SetLives(3);
         NewRound();
@@ -137,8 +139,11 @@ public class GameManager : MonoBehaviour
 
     public void OnPlayerKilled(Player player)
     {
+        
 
         player.gameObject.SetActive(false);
+        invaders.gameObject.SetActive(false);
+        deathScreen.gameObject.SetActive(true);
 
     }
 
