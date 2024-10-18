@@ -8,13 +8,14 @@ using UnityEngine;
 public class Invader : MonoBehaviour
 {
     public Sprite[] animationSprites = new Sprite[4];
+    
+    // Maybe make time between animations random??
     public float animationTime;
 
     public int invaderType;
 
     SpriteRenderer spRend;
     int animationFrame;
-    // Start is called before the first frame update
 
     private void Awake()
     {
