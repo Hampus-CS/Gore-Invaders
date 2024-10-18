@@ -1,5 +1,6 @@
+using System;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
@@ -8,11 +9,14 @@ public class Player : MonoBehaviour
     public Laser laserPrefab;
     Laser laser;
     public GameObject LaserLjud;
-    
+    public float recoil = 0f;
+    public GameObject fakeplayer;
+
     GameManager gameManager;
     float speed = 5f;
 
     // Update is called once per frame
+    
     void Update()
     {
         Vector3 position = transform.position;
@@ -26,11 +30,18 @@ public class Player : MonoBehaviour
         position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
 
         transform.position = position;
+        fakeplayer.transform.position = new Vector3(position.x, position.y-recoil, position.z);
+        //(Random.Range(-recoil, recoil)
+        if (recoil > 0) recoil -= Time.deltaTime * 10f;
+        recoil = Mathf.Clamp(recoil , 0 ,12.5f) ;
 
         if (Input.GetButtonDown("Fire1") && laser == null)
         {
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
             Instantiate(LaserLjud, transform.position, Quaternion.identity);
+
+            recoil = 0.5f;
+
         }
     }
 
@@ -39,6 +50,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.layer == LayerMask.NameToLayer("Missile") || collision.gameObject.layer == LayerMask.NameToLayer("Invader"))
         {
             GameManager.Instance.Health();
+            Console.WriteLine("död");
+
         }
     }
 }
