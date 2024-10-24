@@ -9,6 +9,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -3643896192386682801, guid: c5e8df54fff663a448bfcc8945d0acf0, type: 3}
+      propertyPath: Blod
+      value: 
+      objectReference: {fileID: 7358781051245914290, guid: 6b0c599ef544a6f41bcba2e7d2254ce6, type: 3}
+    - target: {fileID: -3643896192386682801, guid: c5e8df54fff663a448bfcc8945d0acf0, type: 3}
       propertyPath: invaderType
       value: 2
       objectReference: {fileID: 0}

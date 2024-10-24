@@ -16,11 +16,12 @@ public class Invader : MonoBehaviour
 
     SpriteRenderer spRend;
     int animationFrame;
-
+    public GameObject Blod;
     private void Awake()
     {
         spRend = GetComponent<SpriteRenderer>();
         spRend.sprite = animationSprites[0];
+
     }
 
     void Start()
@@ -45,6 +46,7 @@ public class Invader : MonoBehaviour
         if(collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
             GameManager.Instance.OnInvaderKilled(this);
+            Instantiate(Blod, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.identity);
         }
         else if(collision.gameObject.layer == LayerMask.NameToLayer("Boundary")) //nått nedre kanten
         {
