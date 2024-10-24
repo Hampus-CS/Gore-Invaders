@@ -141,7 +141,9 @@ public class GameManager : MonoBehaviour
 
         player.gameObject.SetActive(false);
         invaders.gameObject.SetActive(false);
+        mysteryShip.gameObject.SetActive(false);
         deathScreen.gameObject.SetActive(true);
+        Time.timeScale = 0f;
 
     }
 
@@ -179,6 +181,7 @@ public class GameManager : MonoBehaviour
         {
             invaders.gameObject.SetActive(false);
             OnPlayerKilled(player);
+            Time.timeScale = 0f;
         }
     }
 
