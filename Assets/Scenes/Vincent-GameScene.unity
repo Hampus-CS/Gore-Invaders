@@ -608,6 +608,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: -6323893956277276416, guid: 559716e886c81ef4d97801147355df61, type: 3}
+  LaserLjud: {fileID: 0}
+  recoil: 0
+  fakeplayer: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1562,6 +1565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5934f3886e4ab984bb16ae6e2b51975c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathScreen: {fileID: 0}
   scoreText: {fileID: 22071550}
   hearts:
   - {fileID: 1130960045}
