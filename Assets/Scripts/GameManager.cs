@@ -16,10 +16,7 @@ public class GameManager : MonoBehaviour
     public int lives { get; private set; } = 3;
 
     public GameObject deathScreen;
-
     public TextMeshProUGUI scoreText;
-    //public GameObject heartPrefab;
-    //public Transform livesContainer;
     public List<GameObject> hearts;
 
     private void Awake()
@@ -32,6 +29,7 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+
     }
 
     private void OnDestroy()
