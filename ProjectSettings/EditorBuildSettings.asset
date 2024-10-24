@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu-HCS-Test.unity
+    path: Assets/Scenes/Main-Menu.unity
     guid: 3c4617aac39d8714daf755e0bf4d185c
   - enabled: 1
-    path: Assets/Scenes/HCS-GameScene.unity
+    path: Assets/Scenes/Game-Scene.unity
     guid: 8f83508962ec4b648941edfb22c7b2c8
   m_configObjects: {}
