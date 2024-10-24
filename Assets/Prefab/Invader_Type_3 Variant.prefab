@@ -19,11 +19,11 @@ PrefabInstance:
     - target: {fileID: -3643896192386682801, guid: c5e8df54fff663a448bfcc8945d0acf0, type: 3}
       propertyPath: animationSprites.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 52a241965eb64874e80cc30109dbc15c, type: 3}
+      objectReference: {fileID: 1322623189, guid: f86270aff7aa4b24b93ff7a69fc2fad8, type: 3}
     - target: {fileID: -3643896192386682801, guid: c5e8df54fff663a448bfcc8945d0acf0, type: 3}
       propertyPath: animationSprites.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 08f340050bfdd3c4da8bc2ec6b718cd8, type: 3}
+      objectReference: {fileID: 1184522506, guid: f86270aff7aa4b24b93ff7a69fc2fad8, type: 3}
     - target: {fileID: 616470825853576882, guid: c5e8df54fff663a448bfcc8945d0acf0, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
