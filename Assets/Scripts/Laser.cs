@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Laser : Projectile
 {
+    public GameObject LaserhitSound;
     private void Awake()
     {
         direction = Vector3.up;
@@ -28,6 +29,7 @@ public class Laser : Projectile
 
         if(bunker == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
         {
+            Instantiate(LaserhitSound, transform.position, Quaternion.identity);
             GameObject.Find("Main Camera").GetComponent<screan_shake_code>().shake = 2f;
             Destroy(gameObject);
         }

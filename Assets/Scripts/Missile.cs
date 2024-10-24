@@ -7,6 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class Missile : Projectile
 {
+    public GameObject MissileSound;
     private void Awake()
     {
         direction = Vector3.down;
@@ -19,6 +20,7 @@ public class Missile : Projectile
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Instantiate(MissileSound, transform.position, Quaternion.identity);
         Destroy(gameObject); //så fort den krockar med något så ska den försvinna.
         GameObject.Find("Main Camera").GetComponent<screan_shake_code>().shake = 1.2f;
     }

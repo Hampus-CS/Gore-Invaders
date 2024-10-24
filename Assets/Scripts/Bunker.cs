@@ -8,6 +8,8 @@ public class Bunker : MonoBehaviour
     int nrOfHits = 0;
     SpriteRenderer spRend;
     public Sprite[] bunkerLifeSprites = new Sprite[4];
+    public GameObject BunkerBlock;
+    public GameObject BunkerBreak;
 
     private void Awake()
     {
@@ -33,18 +35,22 @@ public class Bunker : MonoBehaviour
             }
             else if (nrOfHits == 1)
             {
+                Instantiate(BunkerBlock, transform.position, Quaternion.identity);
                 spRend.sprite = bunkerLifeSprites[1];
             }
             else if (nrOfHits == 2)
             {
+                Instantiate(BunkerBlock, transform.position, Quaternion.identity);
                 spRend.sprite = bunkerLifeSprites[2];
             }
             else if (nrOfHits == 3)
             {
+                Instantiate(BunkerBlock, transform.position, Quaternion.identity);
                 spRend.sprite = bunkerLifeSprites[3];
             }
             else if (nrOfHits == 4)
             {
+                Instantiate(BunkerBreak, transform.position, Quaternion.identity);
                 gameObject.SetActive(false);
             }
 

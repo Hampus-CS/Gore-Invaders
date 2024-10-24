@@ -5012,3 +5012,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f39463a2d6a16e4980ea80f770be62d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LaserhitSound: {fileID: 290739406226431762, guid: d9f5955bc2102b34298d447a9bda3d24, type: 3}
