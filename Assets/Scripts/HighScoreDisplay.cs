@@ -1,28 +1,62 @@
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+
 public class HighScoreDisplay : MonoBehaviour
 {
+    private HighScoreManager highScoreManager;
 
-    private TMP_Text tmp_Text;
-
-    public TMP_Text nameText;
-    public TMP_Text scoreText;
+    // Definiera TextMeshPro-fält för varje poäng och smeknamn.
+    public TMP_Text[] scoreTexts;  // Array för score rutorna.
+    public TMP_Text[] nameTexts;   // Array för nickname rutorna.
 
     private void Awake()
     {
-        tmp_Text = GetComponent<TMP_Text>();
+        highScoreManager = FindObjectOfType<HighScoreManager>();
+
+        // Ger en varning om ingen highScoreManager hittas.
+        if (highScoreManager == null)
+        {
+            Debug.LogError("HighScoreManager not found in the scene!");
+        }
+        else
+        {
+            highScoreManager.LoadScores(); // Se till att poängen laddas vid start
+        }
     }
 
-    public void DisplayHighScore(string name, int score)
+    void Start()
     {
-        nameText.text = name;
-        scoreText.text = string.Format("{0:000000}", score);
+        DisplayHighScores();
     }
 
-    public void HideEntryDisplay()
+    public void DisplayHighScores()
     {
-        nameText.text = "";
-        scoreText.text = "";
-    }
+        if (highScoreManager == null || highScoreManager.highScores == null)
+        {
+            Debug.LogWarning("HighScoreManager or highScores list is null.");
+            return;
+        }
 
+        if (scoreTexts == null || nameTexts == null)
+        {
+            Debug.LogWarning("ScoreTexts or NameTexts arrays are not assigned.");
+            return;
+        }
+
+        highScoreManager.LoadScores();
+
+        for (int i = 0; i < highScoreManager.highScores.Count && i < scoreTexts.Length; i++)
+        {
+            if (scoreTexts[i] != null && nameTexts[i] != null)
+            {
+                scoreTexts[i].text = highScoreManager.highScores[i].Score.ToString("00000");
+                nameTexts[i].text = highScoreManager.highScores[i].Nickname;
+            }
+            else
+            {
+                Debug.LogWarning($"Text element at index {i} is null.");
+            }
+        }
+    }
 }
