@@ -7,7 +7,7 @@ public class MysteryShip : MonoBehaviour
 {
     float speed = 5f;
     float cycleTime = 5f;
-
+    public int msLives = 3;
     Vector2 leftDestination;
     Vector2 rightDestination;
     int direction = -1;
@@ -36,7 +36,7 @@ public class MysteryShip : MonoBehaviour
 
         if(direction == 1)
         {
-            //rör sig åt höger
+            //rör sig åt höger.
             transform.position += speed * Time.deltaTime * Vector3.right;
 
             if (transform.position.x >= rightDestination.x)
@@ -71,22 +71,35 @@ public class MysteryShip : MonoBehaviour
             transform.position = leftDestination;
         }
 
-        Invoke(nameof(SetVisible), cycleTime); //anropar SetVisible efter ett visst antal sekunder
+        Invoke(nameof(SetVisible), cycleTime); //anropar SetVisible efter ett visst antal sekunder.
     }
 
     void SetVisible()
     {
-        direction *= -1; //Ändrar riktningen
+        direction *= -1; //Ändrar riktningen.
 
         isVisible = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Liv funktion för MysteryShip.
         if(collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
-            SetInvisible();
-            GameManager.Instance.OnMysteryShipKilled(this);
+            if(msLives == 3)
+            {
+                msLives--;
+            }
+            if(msLives == 2)
+            {
+                msLives--;
+            }
+            if(msLives == 1)
+            {
+                SetInvisible();
+                GameManager.Instance.OnMysteryShipKilled(this);
+            }
+            
         }
     }
 }
