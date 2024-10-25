@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 343642788426015177}
   - component: {fileID: -3018002325204703901}
+  - component: {fileID: -3475630799570532228}
   m_Layer: 0
   m_Name: BunkerBlockSound
   m_TagString: Untagged
@@ -128,3 +129,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3475630799570532228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5987858783109822445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d472e0de0e0388c48ab475e6e83d2b4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTime: 60
