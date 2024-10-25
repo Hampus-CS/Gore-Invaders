@@ -45,7 +45,10 @@ public class Invader : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
+            //spawnar ett partikel system som gör att det kommer blod.
             Instantiate(Blod, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.identity);
+
+
             GameManager.Instance.OnInvaderKilled(this);
             
         }

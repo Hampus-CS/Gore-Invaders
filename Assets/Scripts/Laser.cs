@@ -29,8 +29,13 @@ public class Laser : Projectile
 
         if(bunker == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
         {
+            //spawnar ett tomt object som gör att lasern låter
             Instantiate(LaserhitSound, transform.position, Quaternion.identity);
+
+            //sickar en singnal att cameran skakar
             GameObject.Find("Main Camera").GetComponent<screan_shake_code>().shake = 2f;
+
+
             Destroy(gameObject);
         }
     }
