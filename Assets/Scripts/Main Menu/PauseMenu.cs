@@ -3,9 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
+    
     public int mainMenu;
-
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
 

@@ -8,8 +8,6 @@ public class GameOverManager : MonoBehaviour
     private HighScoreManager highScoreManager;
     public GameObject highScoreInputUI;
     public TMP_InputField nicknameInputField;
-    //private int playerScore;
-
     public int mainMenu;
 
     private void Awake()
@@ -45,7 +43,7 @@ public class GameOverManager : MonoBehaviour
     {
         string nickname = nicknameInputField.text;
 
-        // Säkerställ att smeknamnet är giltigt (ej tomt och exakt 3 tecken långt).
+        // Säkerställ att spelarens smeknamne är giltigt (alltså ej tomt och exakt 3 tecken långt).
         if (!string.IsNullOrEmpty(nickname) && nickname.Length == 3)
         {
             highScoreManager.AddScore(GameManager.Instance.score, nickname);
@@ -62,5 +60,6 @@ public class GameOverManager : MonoBehaviour
     private void ReturnToMainMenu()
     {
         SceneManager.LoadScene(mainMenu);
+        Time.timeScale = 1f;
     }
 }
