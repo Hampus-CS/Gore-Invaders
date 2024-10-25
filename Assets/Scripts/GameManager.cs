@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
         deathScreen.gameObject.SetActive(false);
         SetScore(0);
         SetLives(3);
+        mysteryShip.msLives = 3;
         NewRound();
     }
 
@@ -95,8 +96,8 @@ public class GameManager : MonoBehaviour
     private void SetScore(int playerScore)
     {
         score = playerScore;
-        scoreText[0].text = $"Score: {score}"; // score under spelets gång
-        scoreText[1].text = $"Score: {score}"; // score i death screen
+        scoreText[0].text = $"Score: {score}"; // score under spelets gång.
+        scoreText[1].text = $"Score: {score}"; // score i death screen.
         Debug.Log($"Score: {score}");
 
         if (score > 0 && score % 100 == 0)
@@ -107,6 +108,7 @@ public class GameManager : MonoBehaviour
 
     private void SetLives(int lives)
     {
+        // Activate lives.
         hearts[0].SetActive(true);
         hearts[1].SetActive(true);
         hearts[2].SetActive(true);
@@ -115,6 +117,7 @@ public class GameManager : MonoBehaviour
 
     public void Health()
     {
+        // Liv funktion för spelaren.
         {
             lives -= 1;
 
@@ -139,7 +142,6 @@ public class GameManager : MonoBehaviour
     public void OnPlayerKilled(Player player)
     {
         
-
         player.gameObject.SetActive(false);
         invaders.gameObject.SetActive(false);
         mysteryShip.gameObject.SetActive(false);

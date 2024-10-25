@@ -275,7 +275,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6244379659967244764, guid: e6ea6094001c6fc4d85dd7c6598e7bf9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 6244379659967244764, guid: e6ea6094001c6fc4d85dd7c6598e7bf9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1013,6 +1013,12 @@ MonoBehaviour:
   LaserLjud: {fileID: 4320666281887949164, guid: 46a7401cf80153849a055e8f9ba65f75, type: 3}
   recoil: 0
   fakeplayer: {fileID: 756817659}
+  playerLifeSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  PlayerHitSound: {fileID: 5987858783109822445, guid: 05f51d1472a879f4b8d862350dcf9daf, type: 3}
+  PlayerDeathSound: {fileID: 5987858783109822445, guid: ad91e365647a1744e89a1d9c0e7fffc2, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,7 +1825,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 1}
+    oldSize: {x: 3.2, y: 3.2}
     newSize: {x: 2, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -1896,7 +1902,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d8f8a071e3ae125499f14e66af340b04, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 81f19e043567f6943a3b8b32f6d6172c, type: 3}
   m_Color: {r: 0.735849, g: 0.0034709943, b: 0.0034709943, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1934,6 +1940,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fbbac07d6dc30c4fac4a1c4fe804eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  msLives: 3
 --- !u!1001 &863135170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1952,7 +1959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6244379659967244764, guid: e6ea6094001c6fc4d85dd7c6598e7bf9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 6244379659967244764, guid: e6ea6094001c6fc4d85dd7c6598e7bf9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2496,7 +2503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6244379659967244764, guid: e6ea6094001c6fc4d85dd7c6598e7bf9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 6244379659967244764, guid: e6ea6094001c6fc4d85dd7c6598e7bf9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2815,7 +2822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6244379659967244764, guid: e6ea6094001c6fc4d85dd7c6598e7bf9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -10
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 6244379659967244764, guid: e6ea6094001c6fc4d85dd7c6598e7bf9, type: 3}
       propertyPath: m_LocalPosition.z

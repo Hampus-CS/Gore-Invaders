@@ -21,17 +21,18 @@ public class HighScoreDisplay : MonoBehaviour
         }
         else
         {
-            highScoreManager.LoadScores(); // Se till att poängen laddas vid start
+            highScoreManager.LoadScores(); // Se till att poängen laddas vid start.
         }
     }
 
     void Start()
     {
-        DisplayHighScores();
+        DisplayHighScores(); // Ladda in highscore och visa.
     }
 
     public void DisplayHighScores()
     {
+        // Kollar om kraven finns för att resterande ska fungera.
         if (highScoreManager == null || highScoreManager.highScores == null)
         {
             Debug.LogWarning("HighScoreManager or highScores list is null.");
@@ -46,6 +47,7 @@ public class HighScoreDisplay : MonoBehaviour
 
         highScoreManager.LoadScores();
 
+        // Laddar in score och nickname.
         for (int i = 0; i < highScoreManager.highScores.Count && i < scoreTexts.Length; i++)
         {
             if (scoreTexts[i] != null && nameTexts[i] != null)
