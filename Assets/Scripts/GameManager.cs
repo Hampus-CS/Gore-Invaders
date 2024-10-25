@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     public int lives { get; private set; } = 3;
 
     public GameObject deathScreen;
-    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI[] scoreText;
     public List<GameObject> hearts;
 
     private void Awake()
@@ -95,7 +95,8 @@ public class GameManager : MonoBehaviour
     private void SetScore(int playerScore)
     {
         score = playerScore;
-        scoreText.text = $"Score: {score}";
+        scoreText[0].text = $"Score: {score}"; // score under spelets gång
+        scoreText[1].text = $"Score: {score}"; // score i death screen
         Debug.Log($"Score: {score}");
 
         if (score > 0 && score % 100 == 0)

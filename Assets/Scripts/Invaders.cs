@@ -136,7 +136,7 @@ public class Invaders : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        speed += 2f; // Ökar hastigheten med 2f varje 100 poäng.
+        speed *= 1.25f; // Ökar speed med 25% varje 100 poäng.
         Debug.Log($"Invader hastighet ökad till: {speed}");
     }
 

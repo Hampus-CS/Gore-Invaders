@@ -5,9 +5,6 @@ public class PauseMenu : MonoBehaviour
 {
     
     public int mainMenu;
-    private Player player;
-    private Invaders invaders;
-    private MysteryShip mysteryShip;
     public static bool gameIsPaused = false;
     public GameObject pauseMenuUI;
 
@@ -36,9 +33,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         gameIsPaused = true;
-        player.gameObject.SetActive(false);
-        invaders.gameObject.SetActive(false);
-        mysteryShip.gameObject.SetActive(false);
 
     }
 
@@ -48,9 +42,6 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsPaused = false;
-        player.gameObject.SetActive(true);
-        invaders.gameObject.SetActive(true);
-        mysteryShip.gameObject.SetActive(true);
 
     }
     
