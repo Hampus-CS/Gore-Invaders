@@ -16,15 +16,15 @@ public class HighScoreManager : MonoBehaviour
     void Awake()
     {
         Debug.Log(Application.persistentDataPath);
-        // Singleton pattern to ensure only one instance of HighScoreManager
+        // Singleton pattern to ensure only one instance of HighScoreManager.
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);  // Keep this object between scenes
+            DontDestroyOnLoad(gameObject);  // Keep this object between scenes.
         }
         else
         {
-            Destroy(gameObject);  // Destroy duplicate instances
+            Destroy(gameObject);  // Destroy duplicate instances.
         }
     }
 

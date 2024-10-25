@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     private Invaders invaders;
     private MysteryShip mysteryShip;
     private Bunker[] bunkers;
-    
+    public GameObject victoryPrefab;
     public int score { get; private set; } = 0;
     public int lives { get; private set; } = 3;
 
@@ -169,6 +169,7 @@ public class GameManager : MonoBehaviour
         
         if (invaders.GetInvaderCount() == 0)
         {
+            Instantiate(victoryPrefab);
             NewRound();
         }
     }

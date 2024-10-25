@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
     public GameObject PlayerHitSound;
     public GameObject PlayerDeathSound;
 
-    // Update is called once per frame
     private void Awake()
     {
         spRend = GetComponent<SpriteRenderer>();

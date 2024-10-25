@@ -5,6 +5,7 @@ public class MainMenuMusicManager : MonoBehaviour
 
     AudioSource mainMenuMusic;
 
+    // Spelar musik när spelaren går in i spelet
     void Start()
     {
         PlayMainMenuMusic();
