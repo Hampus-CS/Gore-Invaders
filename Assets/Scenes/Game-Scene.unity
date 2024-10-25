@@ -1017,8 +1017,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  PlayerHitSound: {fileID: 0}
-  PlayerDeathSound: {fileID: 0}
+  PlayerHitSound: {fileID: 5987858783109822445, guid: 05f51d1472a879f4b8d862350dcf9daf, type: 3}
+  PlayerDeathSound: {fileID: 5987858783109822445, guid: ad91e365647a1744e89a1d9c0e7fffc2, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
