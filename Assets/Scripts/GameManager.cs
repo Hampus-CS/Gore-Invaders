@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
         
         if (invaders.GetInvaderCount() == 0)
         {
-            Instantiate(victoryPrefab);
+            //Instantiate(victoryPrefab);
             NewRound();
         }
     }

@@ -970,7 +970,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 925328636, guid: fd78b3583560f8148b5a928f64452205, type: 3}
   m_Color: {r: 0.52398545, g: 0.52524304, b: 0.7075472, a: 1}
   m_FlipX: 0
@@ -1014,9 +1014,9 @@ MonoBehaviour:
   recoil: 0
   fakeplayer: {fileID: 756817659}
   playerLifeSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 925328636, guid: fd78b3583560f8148b5a928f64452205, type: 3}
+  - {fileID: 1304974283, guid: fd78b3583560f8148b5a928f64452205, type: 3}
+  - {fileID: 288854212, guid: fd78b3583560f8148b5a928f64452205, type: 3}
   PlayerHitSound: {fileID: 5987858783109822445, guid: 05f51d1472a879f4b8d862350dcf9daf, type: 3}
   PlayerDeathSound: {fileID: 5987858783109822445, guid: ad91e365647a1744e89a1d9c0e7fffc2, type: 3}
 --- !u!1 &519420028
@@ -2571,7 +2571,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 575000454977234917, guid: 69339d7c68b2f714a8fc6f0dd9a7b96a, type: 2}
   m_audioClip: {fileID: 8300000, guid: 796470c723a1306428943441aa7acd7e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
   Mute: 0
