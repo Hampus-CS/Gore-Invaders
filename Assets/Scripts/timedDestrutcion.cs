@@ -9,11 +9,13 @@ public class timedDestrutcion : MonoBehaviour
     {
         
     }
+    
     public float targetTime = 60.0f;
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        //är en timer som när klar tar bort objectet det är på
         targetTime -= Time.deltaTime;
 
         if (targetTime <= 0.0f)
