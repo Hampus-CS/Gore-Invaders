@@ -39,14 +39,17 @@ public class Player : MonoBehaviour
         position.x = Mathf.Clamp(position.x, leftEdge.x, rightEdge.x);
 
         transform.position = position;
+
+        // flytar en fake bild av playern så det ser ut som recoil
         fakeplayer.transform.position = new Vector3(position.x, position.y-recoil, position.z);
-        //(Random.Range(-recoil, recoil)
         if (recoil > 0) recoil -= Time.deltaTime * 10f;
         recoil = Mathf.Clamp(recoil , 0 ,12.5f) ;
 
         if (Input.GetButtonDown("Fire1") && laser == null)
         {
             laser = Instantiate(laserPrefab, transform.position, Quaternion.identity);
+
+            //spawnar ett objekt med ljud.
             Instantiate(LaserLjud, transform.position, Quaternion.identity);
 
             recoil = 0.5f;
