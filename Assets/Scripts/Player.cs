@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
-        spRend = GetComponent<SpriteRenderer>();
+        spRend = fakeplayer.GetComponent<SpriteRenderer>();
     }
     void Update()
     {
