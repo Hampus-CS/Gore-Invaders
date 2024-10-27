@@ -19,7 +19,7 @@ public class MysteryShip : MonoBehaviour
         Vector3 leftEdge = Camera.main.ViewportToWorldPoint(Vector3.zero);
         Vector3 rightEdge = Camera.main.ViewportToWorldPoint(Vector3.right);
 
-        //positionen där den kommer stanna utanför skärmen.
+        // The position where it will stay off-screen.
         leftDestination = new Vector2(leftEdge.x - 2f, transform.position.y);
         rightDestination = new Vector2(rightEdge.x + 2f, transform.position.y);
 
@@ -29,14 +29,14 @@ public class MysteryShip : MonoBehaviour
 
     void Update()
     {
-        if (!isVisible) //är den inte synlig så ska den ej röra sig.
+        if (!isVisible) // If it's not visible then it can't move.
         {
             return;
         }
 
         if(direction == 1)
         {
-            //rör sig åt höger.
+            // Moves right.
             transform.position += speed * Time.deltaTime * Vector3.right;
 
             if (transform.position.x >= rightDestination.x)
@@ -46,7 +46,7 @@ public class MysteryShip : MonoBehaviour
         }
         else
         {
-            //rör sig åt vänster
+            // Moves left.
             transform.position += speed * Time.deltaTime * Vector3.left;
 
             if (transform.position.x <= leftDestination.x)
@@ -56,8 +56,8 @@ public class MysteryShip : MonoBehaviour
         }
     }
 
-  
-    //flyttar den till en plast precis utanför scenen.
+
+    // Moves it to a place just off scene.
     void SetInvisible()
     {
         isVisible = false;
@@ -71,19 +71,19 @@ public class MysteryShip : MonoBehaviour
             transform.position = leftDestination;
         }
 
-        Invoke(nameof(SetVisible), cycleTime); //anropar SetVisible efter ett visst antal sekunder.
+        Invoke(nameof(SetVisible), cycleTime); // Calls SetVisible after a certain number of seconds.
     }
 
     void SetVisible()
     {
-        direction *= -1; //Ändrar riktningen.
+        direction *= -1; // Change direction.
 
         isVisible = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Liv funktion för MysteryShip.
+        // Life function for MysteryShip.
         if(collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
             if(msLives == 3)

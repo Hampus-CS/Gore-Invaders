@@ -10,22 +10,22 @@ public class timedDestrutcion : MonoBehaviour
         
     }
     
-    public float targetTime = 60.0f;
+    public float targetTime = 5.0f;
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        //är en timer som när klar tar bort objectet det är på
+        // Is a timer that when ready removes the object it is on.
         targetTime -= Time.deltaTime;
 
         if (targetTime <= 0.0f)
         {
-            timerEnded();
+            TimerEnded();
         }
 
     }
 
-    void timerEnded()
+    void TimerEnded()
     {
         Destroy(gameObject);
     }

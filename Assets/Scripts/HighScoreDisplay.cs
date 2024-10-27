@@ -6,33 +6,33 @@ public class HighScoreDisplay : MonoBehaviour
 {
     private HighScoreManager highScoreManager;
 
-    // Definiera TextMeshPro-fält för varje poäng och smeknamn.
-    public TMP_Text[] scoreTexts;  // Array för score rutorna.
-    public TMP_Text[] nameTexts;   // Array för nickname rutorna.
+    // Define TextMeshPro fields for each score and nickname.
+    public TMP_Text[] scoreTexts; // Array for the score boxes.
+    public TMP_Text[] nameTexts; // Array for the nickname boxes.
 
     private void Awake()
     {
         highScoreManager = FindObjectOfType<HighScoreManager>();
 
-        // Ger en varning om ingen highScoreManager hittas.
+        // Gives a warning if no highScoreManager is found.
         if (highScoreManager == null)
         {
             Debug.LogError("HighScoreManager not found in the scene!");
         }
         else
         {
-            highScoreManager.LoadScores(); // Se till att poängen laddas vid start.
+            highScoreManager.LoadScores(); // Make sure the scores are loaded at startup.
         }
     }
 
     void Start()
     {
-        DisplayHighScores(); // Ladda in highscore och visa.
+        DisplayHighScores(); // Load highscore and display.
     }
 
     public void DisplayHighScores()
     {
-        // Kollar om kraven finns för att resterande ska fungera.
+        // Checks if the requirements exist for the rest to work.
         if (highScoreManager == null || highScoreManager.highScores == null)
         {
             Debug.LogWarning("HighScoreManager or highScores list is null.");
@@ -41,13 +41,13 @@ public class HighScoreDisplay : MonoBehaviour
 
         if (scoreTexts == null || nameTexts == null)
         {
-            Debug.LogWarning("ScoreTexts or NameTexts arrays are not assigned.");
+            Debug.LogWarning("The ScoreTexts or NameTexts arrays are not assigned.");
             return;
         }
 
         highScoreManager.LoadScores();
 
-        // Laddar in score och nickname.
+        // Loads scores and nicknames.
         for (int i = 0; i < highScoreManager.highScores.Count && i < scoreTexts.Length; i++)
         {
             if (scoreTexts[i] != null && nameTexts[i] != null)
@@ -57,8 +57,8 @@ public class HighScoreDisplay : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning($"Text element at index {i} is null.");
-            }
-        }
+                Debug.LogWarning($"The text element at index { i} is null.");
+    }
+}
     }
 }

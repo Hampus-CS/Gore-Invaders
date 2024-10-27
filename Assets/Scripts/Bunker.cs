@@ -21,14 +21,10 @@ public class Bunker : MonoBehaviour
        
         if (other.gameObject.layer == LayerMask.NameToLayer("Missile") || other.gameObject.layer == LayerMask.NameToLayer("Invader"))
         {
-
-            //Ändrar färgen beroende på antal träffar.
-            nrOfHits++;
-            //Color oldColor = spRend.color;
-
-            //Color newColor = new Color(oldColor.r +(nrOfHits*0.1f), oldColor.g + (nrOfHits * 0.1f), oldColor.b + (nrOfHits * 0.1f));
+            // change of sprite depending on the number of hits on the bunker.
             
-            //spRend.color = newColor;
+            nrOfHits++;
+
             if(nrOfHits == 0)
             {
                 spRend.sprite = bunkerLifeSprites[0];
@@ -60,6 +56,8 @@ public class Bunker : MonoBehaviour
 
     public void ResetBunker()
     {
-        gameObject.SetActive(true);
+        nrOfHits = 0; // Reset the hit counter
+        spRend.sprite = bunkerLifeSprites[0]; // Reset to the initial sprite
+        gameObject.SetActive(true); // Reactivate the bunker
     }
 }

@@ -26,11 +26,11 @@ public class Invader : MonoBehaviour
 
     void Start()
     {
-        //Anropar AnimateSprite med ett visst tidsintervall
+        // Calls AnimateSprite with a certain time interval.
         InvokeRepeating( nameof(AnimateSprite) , animationTime, animationTime);
     }
 
-    //pandlar mellan olika sprited för att skapa en animation
+    // Switches between different sprites to create an animation.
     private void AnimateSprite()
     {
         animationFrame++;
@@ -45,14 +45,14 @@ public class Invader : MonoBehaviour
     {
         if(collision.gameObject.layer == LayerMask.NameToLayer("Laser"))
         {
-            //spawnar ett partikel system som gör att det kommer blod.
+            // Spawns a particle system that causes blood to be released.
             Instantiate(Blod, new Vector3(transform.position.x, transform.position.y, transform.position.z - 2), Quaternion.identity);
 
 
             GameManager.Instance.OnInvaderKilled(this);
             
         }
-        else if(collision.gameObject.layer == LayerMask.NameToLayer("Boundary")) //nått nedre kanten
+        else if(collision.gameObject.layer == LayerMask.NameToLayer("Boundary")) // Reached the bottom edge.
         {
             GameManager.Instance.OnBoundaryReached();
         }

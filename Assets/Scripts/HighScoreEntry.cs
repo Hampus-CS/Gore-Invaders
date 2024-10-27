@@ -6,9 +6,9 @@ public class HighScoreEntry
     public int Score;
     public string Nickname;
 
-    public HighScoreEntry() { } // Parameterlös konstruktör för XML-serialisering.
+    public HighScoreEntry() { } // Parameterless constructor for XML serialisation.
 
-    public HighScoreEntry(int score, string nickname) // För att spara spelarens score och nickname.
+    public HighScoreEntry(int score, string nickname) // To save the player's score and nickname.
     {
         Score = score;
         Nickname = nickname;

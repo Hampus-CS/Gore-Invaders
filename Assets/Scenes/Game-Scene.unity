@@ -960,6 +960,7 @@ MonoBehaviour:
   LaserLjud: {fileID: 4320666281887949164, guid: 46a7401cf80153849a055e8f9ba65f75, type: 3}
   recoil: 3
   fakeplayer: {fileID: 756817659}
+  spRend: {fileID: 0}
   playerLifeSprites:
   - {fileID: 925328636, guid: fd78b3583560f8148b5a928f64452205, type: 3}
   - {fileID: 1304974283, guid: fd78b3583560f8148b5a928f64452205, type: 3}
@@ -1711,7 +1712,7 @@ Transform:
   m_GameObject: {fileID: 756817659}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7916226, y: 1.78, z: -0.34888005}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3056,6 +3057,7 @@ MonoBehaviour:
   - {fileID: 2807511506836353133, guid: 17e2567303af665409299fe7ebf2a106, type: 3}
   - {fileID: 805445935264799928, guid: 56b24060ffca45c4c8d48a0f233c0fd4, type: 3}
   missilePrefab: {fileID: 7531683265638526724, guid: 519e8507362cbe34c9a947ff642f5226, type: 3}
+  speed: 1
 --- !u!4 &1417433918
 Transform:
   m_ObjectHideFlags: 0
@@ -3371,10 +3373,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1366042650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 526, y: 526}
+  m_SizeDelta: {x: 1125, y: 1125}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1637891256
 MonoBehaviour:
@@ -3389,7 +3391,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.9019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9607843}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

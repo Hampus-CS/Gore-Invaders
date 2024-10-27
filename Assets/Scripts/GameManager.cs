@@ -15,6 +15,11 @@ public class GameManager : MonoBehaviour
     public int score { get; private set; } = 0;
     public int lives { get; private set; } = 3;
 
+    // To make sure bunkers are located on these positions and it can't be changed.
+    private readonly Vector3[] bunkerPositions = { new Vector3(-10, -9, 0), new Vector3(-3.5f, -9, 0), new Vector3(3.5f, -9, 0), new Vector3(10, -9, 0) };
+
+    private int wavesCleared = 0;
+
     public GameObject deathScreen;
     public TextMeshProUGUI[] scoreText;
     public List<GameObject> hearts;
@@ -46,7 +51,6 @@ public class GameManager : MonoBehaviour
         invaders = FindObjectOfType<Invaders>();
         mysteryShip = FindObjectOfType<MysteryShip>();
         bunkers = FindObjectsOfType<Bunker>();
-
         NewGame();
     }
 
@@ -64,19 +68,17 @@ public class GameManager : MonoBehaviour
         SetScore(0);
         SetLives(3);
         mysteryShip.msLives = 3;
+
         NewRound();
     }
 
     private void NewRound()
     {
+        wavesCleared += 1;
         invaders.ResetInvaders();
         invaders.gameObject.SetActive(true);
-
-        for (int i = 0; i < bunkers.Length; i++)
-        {
-            bunkers[i].ResetBunker();
-        }
-
+        ResetBunkers();
+        invaders.speed = 1 + wavesCleared * 0.75f;
         Respawn();
     }
 
@@ -96,8 +98,8 @@ public class GameManager : MonoBehaviour
     private void SetScore(int playerScore)
     {
         score = playerScore;
-        scoreText[0].text = $"Score: {score}"; // score under spelets gång.
-        scoreText[1].text = $"Score: {score}"; // score i death screen.
+        scoreText[0].text = $"Score: {score}"; // score during playing the game.
+        scoreText[1].text = $"Score: {score}"; // score in death screen.
         Debug.Log($"Score: {score}");
 
         if (score > 0 && score % 100 == 0)
@@ -117,26 +119,32 @@ public class GameManager : MonoBehaviour
 
     public void Health()
     {
-        // Liv funktion för spelaren.
+        // Life funktion for player.
         {
             lives -= 1;
 
             if (lives == 2)
             {
                 hearts[0].SetActive(false);
+                player.spRend.sprite = player.playerLifeSprites[1];
+                Instantiate(player.PlayerHitSound, transform.position, Quaternion.identity);
             }
             else if (lives == 1)
             {
                 hearts[1].SetActive(false);
+                player.spRend.sprite = player.playerLifeSprites[2];
+                Instantiate(player.PlayerHitSound, transform.position, Quaternion.identity);
             }
             else if (lives == 0)
             {
                 hearts[2].SetActive(false);
+                Instantiate(player.PlayerHitSound, transform.position, Quaternion.identity);
                 OnPlayerKilled(player);
             }
 
             Debug.Log($"Player lives remaining: {lives}");
         }
+
     }
 
     public void OnPlayerKilled(Player player)
@@ -169,7 +177,6 @@ public class GameManager : MonoBehaviour
         
         if (invaders.GetInvaderCount() == 0)
         {
-            //Instantiate(victoryPrefab);
             NewRound();
         }
     }
@@ -177,6 +184,7 @@ public class GameManager : MonoBehaviour
     public void OnMysteryShipKilled(MysteryShip mysteryShip)
     {
         mysteryShip.gameObject.SetActive(false);
+        SetScore(score + 250);
     }
 
     public void OnBoundaryReached()
@@ -186,6 +194,15 @@ public class GameManager : MonoBehaviour
             invaders.gameObject.SetActive(false);
             OnPlayerKilled(player);
             Time.timeScale = 0f;
+        }
+    }
+
+    private void ResetBunkers()
+    {
+        for (int i = 0; i < bunkers.Length; i++)
+        {
+            bunkers[i].transform.position = bunkerPositions[i];
+            bunkers[i].ResetBunker();
         }
     }
 

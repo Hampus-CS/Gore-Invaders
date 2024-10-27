@@ -12,7 +12,7 @@ public class Invaders : MonoBehaviour
 
     public Missile missilePrefab;
 
-    private float speed = 1f; //Start hastighet för invaders.
+    public float speed = 1f; // Start speed for invaders.
 
     private void Awake()
     {
@@ -22,10 +22,10 @@ public class Invaders : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating(nameof(MissileAttack), 1, 1); //Hur ofta ska den skjuta iväg missiler.
+        InvokeRepeating(nameof(MissileAttack), 1, 1); // How often should it launch missiles.
     }
 
-    //Skapar själva griden med alla invaders.
+    // Creates the grid itself with all the invaders.
     void CreateInvaderGrid()
     {
         for(int r = 0; r < row; r++)
@@ -33,7 +33,7 @@ public class Invaders : MonoBehaviour
             float width = 2f * (col - 1);
             float height = 2f * (row - 1);
 
-            //för att centerar invaders.
+            // For centring invaders.
             Vector2 centerOffset = new Vector2(-width * 0.5f, -height * 0.5f);
             Vector3 rowPosition = new Vector3(centerOffset.x, (2f * r) + centerOffset.y, 0f);
             
@@ -47,8 +47,8 @@ public class Invaders : MonoBehaviour
             }
         }
     }
-    
-    //Aktiverar alla invaders igen och placerar från ursprungsposition.
+
+    // Activates all invaders again and places from original position.
     public void ResetInvaders()
     {
         direction = Vector3.right;
@@ -60,7 +60,7 @@ public class Invaders : MonoBehaviour
         }
     }
 
-    //Skjuter slumpmässigt iväg en missil.
+    // Randomly fires a missile.
     void MissileAttack()
     {
         int nrOfInvaders = GetInvaderCount();
@@ -73,7 +73,7 @@ public class Invaders : MonoBehaviour
         foreach(Transform invader in transform)
         {
 
-            if (!invader.gameObject.activeInHierarchy) //om en invader är död ska den inte kunna skjuta...
+            if (!invader.gameObject.activeInHierarchy) // If an invader is dead, it should not be able to shoot.
                 continue;
             
            
@@ -87,7 +87,7 @@ public class Invaders : MonoBehaviour
        
     }
 
-    //Kollar hur många invaders som lever.
+    // Check how many invaders are alive.
     public int GetInvaderCount()
     {
         int nr = 0;
@@ -100,7 +100,7 @@ public class Invaders : MonoBehaviour
         return nr;
     }
 
-    //Flyttar invaders åt sidan.
+    // Moves invaders aside.
     void Update()
     {
         transform.position += speed * Time.deltaTime * direction;
@@ -110,7 +110,7 @@ public class Invaders : MonoBehaviour
 
         foreach (Transform invader in transform)
         {
-            if (!invader.gameObject.activeInHierarchy) //Kolla bara invaders som lever.
+            if (!invader.gameObject.activeInHierarchy) // Just look at the invaders living.
                 continue;
 
             if (direction == Vector3.right && invader.position.x >= rightEdge.x - 1f)
@@ -125,7 +125,7 @@ public class Invaders : MonoBehaviour
             }
         }
     }
-    //Byter riktning och flytter ner ett steg.
+    // Changes direction and moves down one step.
     void AdvanceRow()
     {
         direction = new Vector3(-direction.x, 0, 0);
@@ -136,7 +136,7 @@ public class Invaders : MonoBehaviour
 
     public void IncreaseSpeed()
     {
-        speed *= 1.25f; // Ökar speed med 25% varje 100 poäng.
+        speed *= 1.25f; // Increases speed by 25% every 100 points.
         Debug.Log($"Invader hastighet ökad till: {speed}");
     }
 

@@ -12,11 +12,11 @@ public class HighScoreManager : MonoBehaviour
     public static HighScoreManager Instance { get; private set; }
 
 
-    // Använder DontDestroyOnLoad för att behålla denna objektet mellan scenbyten.
+    // Uses DontDestroyOnLoad to keep this object between scene changes.
     void Awake()
     {
         Debug.Log(Application.persistentDataPath);
-        // Singleton pattern to ensure only one instance of HighScoreManager.
+        // Ensure only one instance of HighScoreManager.
         if (Instance == null)
         {
             Instance = this;
@@ -28,17 +28,17 @@ public class HighScoreManager : MonoBehaviour
         }
     }
 
-    // Befintliga poäng laddas från filen när spelet startar.
+    // Existing points are loaded from the file when the game starts.
     void Start()
     {
         LoadScores();
     }
 
     /// <summary>
-    /// Metod som laddar high scores från en XML-fil.
-    /// Kontrollera om filen med high scores existerar.
-    /// Skapa en serializer för att kunna läsa in listan från XML-format.
-    /// Öppnar filen och deserialisera innehållet till en lista med high scores.
+    /// Method that loads high scores from an XML file.
+    /// Check if the high scores file exists.
+    /// Create a serialiser to read the list from XML format.
+    /// Open the file and deserialise the content into a list of high scores.
     /// </summary>
 
     public void LoadScores()
@@ -60,9 +60,9 @@ public class HighScoreManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Följande är en metod för att spara nuvarande high scores till en XML-fil.
-    /// Skapar eller skriver över filen med high scores.
-    /// Serialisera (skriv) listan till filen.
+    /// The following is a method to save the current high scores to an XML file.
+    /// Create or overwrite the high scores file.
+    /// Serialise (write) the list to the file.
     /// </summary>
 
     public void SaveScores()
@@ -75,11 +75,11 @@ public class HighScoreManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Metod för att lägga till en ny poäng och sortera listan med high scores.
-    /// Skapar en ny high score-post med poäng och namn. För att sedan lägga till posten i listan.
-    /// Sortera listan i fallande ordning (högsta poängen först).
-    /// Om listan överstiger max antal (5), ta bort den sista posten.
-    /// Spara de uppdaterade high scores till filen.
+    /// Method to add a new score and sort the list of high scores.
+    /// Creates a new high score record with score and name. To then add the record to the list.
+    /// Sort the list in descending order (highest score first).
+    /// If the list exceeds the maximum number (5), delete the last record.
+    /// Save the updated high scores to the file.
     /// </summary>
 
     public void AddScore(int newScore, string nickname)
@@ -97,9 +97,9 @@ public class HighScoreManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Metod för att kontrollera om en ny poäng kvalificerar sig som en high score.
-    /// Kollar om listan har färre än maxScores eller om poängen är högre än den lägsta high scoren.
-    /// En check för om poängen kvalificerar eller inte.
+    /// Method to check if a new score qualifies as a high score.
+    /// Checks if the list has less than maxScores or if the score is higher than the lowest high score.
+    /// A check for whether the score qualifies or not.
     /// </summary>
 
 
@@ -112,10 +112,10 @@ public class HighScoreManager : MonoBehaviour
         return false;
     }
 
-    // Privat metod för att hämta filens sökväg där high scores sparas.
+    // Private method to retrieve the file path where high scores are saved.
     private string GetFilePath()
     {
-        // Kombinerar spelets persistenta datamapp och filnamnet för att få filens fulla sökväg.
+        // Combines the game's persistent data folder and the file name to get the full path of the file.
         return Path.Combine(Application.persistentDataPath, fileName);
     }
 }

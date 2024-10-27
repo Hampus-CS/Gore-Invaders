@@ -8,20 +8,20 @@ public class SimpleAspectRatioController : MonoBehaviour
 
     void Start()
     {
-        // Beräknar skärmaspekten (bredd/höjd) för den aktuella skärmen samt beräknar höjdskalan som behövs för att matcha den aspekt vi vill ha.
+        // Calculates the screen aspect (width/height) of the current screen and calculates the height scale needed to match the aspect we want.
         float screenAspect = (float)Screen.width / Screen.height;
         float scaleHeight = screenAspect / targetAspect;
 
         Camera camera = GetComponent<Camera>();
         
-        if (scaleHeight < 1.0f) // Om höjdskalan är mindre än 1 innebär det att skärmen är bredare än målaspekten.
+        if (scaleHeight < 1.0f) // If the height scale is less than 1, it means that the screen is wider than the target aspect.
         {
-            // Justerar kamerans viewport för att lägga till svarta kanter vertikalt.
+            // Adjusts the camera viewport to add black borders vertically.
             camera.rect = new Rect(0, (1.0f - scaleHeight) / 2.0f, 1.0f, scaleHeight);
         }
-        else // Annars, om skärmen är smalare, beräknas breddskalan.
+        else // Otherwise, if the screen is narrower, the width scale is calculated.
         {
-            // Justerar kamerans viewport för att lägga till svarta kanter horisontellt.
+            // Adjusts the camera viewport to add black borders horizontally.
             float scaleWidth = 1.0f / scaleHeight;
             camera.rect = new Rect((1.0f - scaleWidth) / 2.0f, 0, scaleWidth, 1.0f);
         }

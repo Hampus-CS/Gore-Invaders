@@ -7,8 +7,8 @@ public class MainMenu : MonoBehaviour
 
     [Header("Music Manager")]
     public MainMenuMusicManager musicManager;
-    
-    // Stänger av huvudmeny musiken när spelaren trycker play, samt byter till game scene.
+
+    // Turns off the main menu music when the player presses play, and switches to the game scene.
     public void Play()
     {
 
@@ -22,7 +22,7 @@ public class MainMenu : MonoBehaviour
 
     }
 
-    // Spelaren går ut spelet.
+    // Player leaves the game.
     public void Quit()
     {
 

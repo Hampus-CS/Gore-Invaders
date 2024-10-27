@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     float speed = 5f;
 
 
-    SpriteRenderer spRend;
+    public SpriteRenderer spRend;
     public Sprite[] playerLifeSprites = new Sprite[3];
 
     public GameObject PlayerHitSound;
@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
 
         transform.position = position;
 
-        // flytar en fake bild av playern så det ser ut som recoil
+        // Fake image of the player so it looks like recoil.
         fakeplayer.transform.position = new Vector3(position.x, position.y-recoil, position.z);
         if (recoil > 0) recoil -= Time.deltaTime * 10f;
         recoil = Mathf.Clamp(recoil , 0 ,12.5f) ;
@@ -56,30 +56,7 @@ public class Player : MonoBehaviour
 
         }
     }
-    private void FixedUpdate()
-    {
-        //Script för spelarens utseende beroende av liv.
-            if (GameManager.Instance.lives == 3)
-            {
-                Instantiate(PlayerHitSound, transform.position, Quaternion.identity);
-                spRend.sprite = playerLifeSprites[0];
-            }
-            else if (GameManager.Instance.lives == 2)
-            {
-                Instantiate(PlayerHitSound, transform.position, Quaternion.identity);
-                spRend.sprite = playerLifeSprites[1];
-            }
-            else if (GameManager.Instance.lives == 1)
-            {
-                Instantiate(PlayerHitSound, transform.position, Quaternion.identity);
-                spRend.sprite = playerLifeSprites[2];
-            }
-            else if (GameManager.Instance.lives == 0)
-            {
-                Instantiate(PlayerDeathSound, transform.position, Quaternion.identity);
-            }
-    }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.layer == LayerMask.NameToLayer("Missile") || collision.gameObject.layer == LayerMask.NameToLayer("Invader"))

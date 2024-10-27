@@ -27,12 +27,12 @@ public class Laser : Projectile
     {
         Bunker bunker = collision.gameObject.GetComponent<Bunker>();
 
-        if(bunker == null) //Om det inte är en bunker vi träffat så ska skottet försvinna.
+        if(bunker == null) // If it's not a bunker we hit, the shot should disappear.
         {
-            //spawnar ett tomt object som gör att lasern låter
+            // Spawns an empty object that makes the laser sound.
             Instantiate(LaserhitSound, transform.position, Quaternion.identity);
 
-            //sickar en singnal att cameran skakar
+            // Sends a signal that the camera is shaking
             GameObject.Find("Main Camera").GetComponent<screan_shake_code>().shake = 2f;
 
 
